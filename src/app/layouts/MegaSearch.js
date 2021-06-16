@@ -61,7 +61,7 @@ const MegaSearch = () => {
         )}
         {search.length >= 4 && (
           <div className={classes.megaSearchList} onScroll={handleScroll}>
-            <Movies movies={movies} onSelectMovie={toggleSearchView} />
+            <Movies movies={movies} onSelectMovie={toggleSearchView} search={search} />
           </div>
         )}
       </div>

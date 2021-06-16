@@ -6,7 +6,7 @@ const megaSearchSlice = createSlice({
   name: "megaSearch",
   initialState: {
     /** mega search open / close */
-    open: false,
+    open: true,
     /** input value  */
     search: "",
     /** is search loading */

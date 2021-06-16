@@ -1,12 +1,21 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import classes from "./movies.module.scss";
 
-const MoviesItem = ({ movie, onSelectMovie }) => {
+const MoviesItem = ({ movie, onSelectMovie, search }) => {
   const handlePosterClick = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
   }, []);
+
+  const titleJSX = useMemo(() => {
+    const splittedSearch = search.split(" ");
+    // filter out single letter words
+    const filteredSearch = splittedSearch.filter((word) => word.length > 1);
+    const title = movie.Title;
+    const regEx = new RegExp(filteredSearch.join("|"), "gi");
+    return title.replace(regEx, (match) => `<span class="text-warning">${match}</span>`);
+  }, [movie, search]);
 
   return (
     <Link className={classes.movieRoot} to={`/movie/${movie.imdbID}`} onClick={onSelectMovie}>
@@ -15,7 +24,7 @@ const MoviesItem = ({ movie, onSelectMovie }) => {
       </div>
       <div className={classes.movieDetail}>
         <h2 className={classes.movieTitle}>
-          <b>{movie?.Title}</b>
+          <b dangerouslySetInnerHTML={{ __html: titleJSX }}></b>
         </h2>
         <div className={classes.movieInfos}>
           {movie?.Year} • <span className="text-capitalize">{movie?.Type}</span>
