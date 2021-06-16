@@ -1,10 +1,13 @@
+import { useCallback, useState } from "react";
 import { useParams } from "react-router";
 import { movieService } from "../../axios/services/movieServices";
+import FullscreenPictureModal from "../../components/gallery/FullscreenPictureModal";
 import { useRequest } from "../../hooks/useRequest";
 import classes from "./movie.module.scss";
 
 const MoviePage = () => {
   const { imdbID } = useParams();
+  const [open, setOpen] = useState(false);
 
   const { data: movie } = useRequest(movieService.get, {
     params: [
@@ -21,8 +24,14 @@ const MoviePage = () => {
       <div className="container-xl">
         {movie && (
           <div className={classes.movieRoot}>
+            <FullscreenPictureModal
+              open={open}
+              handleClose={() => setOpen(false)}
+              src={movie.Poster}
+              alt={`${movie?.Title} poster`}
+            />
             <div className={classes.moviePoster}>
-              <img src={movie.Poster} alt="" />
+              <img src={movie.Poster} alt="" onClick={() => setOpen(true)} />
             </div>
             <div className={classes.movieDetail}>
               <h2 className={classes.movieTitle}>
