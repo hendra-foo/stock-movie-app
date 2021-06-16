@@ -1,5 +1,12 @@
+@import "../sass/variables";
+@import "../sass/mixins";
+
 .sectionHero {
-  padding: 5rem 0;
+  padding: 5rem 0 0.75rem;
+
+  @include media-breakpoint-up(sm) {
+    padding: 5rem 0;
+  }
 
   .heroText {
     text-align: center;
