@@ -1,30 +1,34 @@
 import { useRequest } from "../hooks/useRequest";
-import { movieService } from "../../services/movieServices";
-import { Link } from "react-router-dom";
+import { movieService } from "../axios/services/movieServices";
+import Movies from "../components/movies/Movies";
+import classes from "./home.module.scss";
 
-const Home = () => {
-  const { data: movies = [] } = useRequest(
-    () =>
-      movieService.list({
+const HomePage = () => {
+  const { data: movies = [] } = useRequest(movieService.get, {
+    formatResult: (res) => res?.Search ?? [],
+    params: [
+      {
         s: "Batman",
-        page: 2,
-      }),
-    {
-      formatResult: (res) => res?.Search ?? [],
-    }
-  );
+        type: "movie",
+        plot: "full",
+        page: 3,
+      },
+    ],
+  });
 
   return (
-    <ol>
-      {movies.map((movie, key) => (
-        <li key={key}>
-          <Link to={`/movie/${movie.imdbID}`}>
-            {movie?.Title} {movie?.Year}
-          </Link>
-        </li>
-      ))}
-    </ol>
+    <section className={classes.sectionHero}>
+      <div className="container-xl">
+        <h1 className={`display-4 ${classes.heroText}`}>
+          Discover our Featured <br />
+          <span className="fw-bold">Batman</span> movie list!
+        </h1>
+        <div>
+          <Movies movies={movies} />
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default Home;
+export default HomePage;

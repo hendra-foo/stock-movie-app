@@ -1,30 +1,42 @@
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { movieService } from "../../../services/movieServices";
+import { movieService } from "../../axios/services/movieServices";
 import { useRequest } from "../../hooks/useRequest";
+import classes from "./movie.module.scss";
 
 const MoviePage = () => {
   const { imdbID } = useParams();
 
-  const { data: movie } = useRequest(() => movieService.detail({ imdbID }));
+  const { data: movie } = useRequest(movieService.get, {
+    params: [
+      {
+        i: imdbID,
+        plot: "full",
+      },
+    ],
+    refreshDeps: [imdbID],
+  });
 
   return (
-    <div>
-      <Link to="/">Back</Link>
-      {movie && (
-        <div className="d-flex p-5">
-          <div className="me-3">
-            <img width="150px" src={movie.Poster} alt="" />
+    <section>
+      <div className="container-xl">
+        {movie && (
+          <div className={classes.movieRoot}>
+            <div className={classes.moviePoster}>
+              <img src={movie.Poster} alt="" />
+            </div>
+            <div className={classes.movieDetail}>
+              <h2 className={classes.movieTitle}>
+                <b>{movie?.Title}</b>
+              </h2>
+              <div className={classes.movieInfos}>
+                {movie?.Year} • <span className="text-capitalize">{movie?.Type}</span>
+              </div>
+              <div dangerouslySetInnerHTML={{ __html: movie.Plot }} />
+            </div>
           </div>
-          <div>
-            <h1>
-              {movie.Title} ({movie.Year})
-            </h1>
-            <div dangerouslySetInnerHTML={{ __html: movie.Plot }} />
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </section>
   );
 };
 

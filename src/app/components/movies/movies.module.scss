@@ -1,0 +1,53 @@
+@import "../../sass/variables";
+
+.moviesRoot {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  margin: auto;
+
+  .movieRoot {
+    border: 1px solid $gray-300;
+    border-radius: 25px;
+    display: flex;
+    overflow: hidden;
+    text-decoration: unset;
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    .moviePoster img {
+      min-width: 200px;
+      max-width: 200px;
+      min-height: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .movieDetail {
+      padding: 1.5rem;
+
+      .movieTitle {
+        color: var(--body-color);
+      }
+
+      .movieInfos {
+        color: $gray-600;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+
+      .moviePlot {
+        color: $gray-600;
+        font-size: 0.875rem;
+        margin-bottom: 0;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 7;
+        overflow: hidden;
+      }
+    }
+  }
+}

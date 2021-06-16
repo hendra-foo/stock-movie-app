@@ -1,0 +1,72 @@
+@import "../sass/variables";
+
+.header {
+  position: relative;
+
+  nav {
+    position: relative;
+    z-index: 10000;
+
+    .btnSearchToggler {
+      display: flex;
+      align-items: center;
+      background-color: unset;
+      border: unset;
+      padding: 0.5rem;
+      line-height: 1.2;
+
+      svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+.megaSearchRoot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  padding: 80px 20px 0;
+  background-color: #fff;
+  max-height: 100%;
+
+  .megaSearchContent {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+
+    .input {
+      width: 100%;
+      border: unset;
+      text-align: center;
+      outline: 0;
+      font-size: 2.5rem;
+      font-weight: 300;
+    }
+
+    .megaSearchHelperText {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 300;
+      font-size: 0.75rem;
+    }
+
+    .megaSearchErrorMessage {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 300;
+      font-size: 0.75rem;
+      color: $red;
+    }
+
+    .megaSearchList {
+      overflow: auto;
+      margin-top: 3rem;
+    }
+  }
+}
