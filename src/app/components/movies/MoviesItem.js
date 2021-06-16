@@ -9,10 +9,12 @@ const MoviesItem = ({ movie, onSelectMovie, search }) => {
   }, []);
 
   const titleJSX = useMemo(() => {
+    const title = movie.Title;
+    if (!search) return title;
+
     const splittedSearch = search.split(" ");
     // filter out single letter words
     const filteredSearch = splittedSearch.filter((word) => word.length > 1);
-    const title = movie.Title;
     const regEx = new RegExp(filteredSearch.join("|"), "gi");
     return title.replace(regEx, (match) => `<span class="text-warning">${match}</span>`);
   }, [movie, search]);
