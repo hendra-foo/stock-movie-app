@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import FullscreenPictureModal from "../Modal/FullscreenPictureModal/FullscreenPictureModal";
+import FullscreenPictureModal from "../modals/FullscreenPictureModal/FullscreenPictureModal";
 import classes from "./moviesItem.module.scss";
 
 const MoviesItem = ({ movie, onSelectMovie, search }) => {
