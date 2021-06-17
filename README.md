@@ -2,6 +2,8 @@
 
 a movie finder app connected to IMDb API.
 
+For Bibit / Stockbit Lead React Developer Test - Test 2: Simple Movie Finder App
+
 ### Built With
 
 - [Create React App](https://github.com/facebook/create-react-app).
