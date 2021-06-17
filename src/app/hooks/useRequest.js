@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export const useRequest = (
   service,
-  { manual, params, onSuccess, onError, formatResult, refreshDeps = [] } = {},
+  { manual, params = [], onSuccess, onError, formatResult, refreshDeps = [] } = {},
 ) => {
   const [{ loading, data, error }, setState] = useState({
     loading: manual ? false : true,
