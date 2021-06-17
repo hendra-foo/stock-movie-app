@@ -35,16 +35,27 @@ const MoviesItem = ({ movie, onSelectMovie, search }) => {
         src={movie.Poster}
         alt={`${movie?.Title} poster`}
       />
-      <Link className={classes.root} to={`/movie/${movie.imdbID}`} onClick={onSelectMovie}>
+      <Link
+        className={classes.root}
+        to={`/movie/${movie.imdbID}`}
+        onClick={onSelectMovie}
+        data-testid="link-anchor"
+      >
         <div className={classes.poster}>
-          <img src={movie.Poster} alt={`${movie?.Title} poster`} onClick={handlePosterClick} />
+          <img
+            src={movie.Poster}
+            alt={`${movie?.Title} poster`}
+            onClick={handlePosterClick}
+            data-testid="poster"
+          />
         </div>
         <div className={classes.detail}>
           <h2 className={classes.title}>
-            <b dangerouslySetInnerHTML={{ __html: titleJSX }}></b>
+            <b dangerouslySetInnerHTML={{ __html: titleJSX }} data-testid="title"></b>
           </h2>
           <div className={classes.info}>
-            {movie?.Year} • <span className="text-capitalize">{movie?.Type}</span>
+            <span data-testid="year">{movie?.Year}</span> •{" "}
+            <span className="text-capitalize">{movie?.Type}</span>
           </div>
           <p className={classes.plot}>
             {movie?.Plot ??

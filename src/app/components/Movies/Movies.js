@@ -3,7 +3,7 @@ import MoviesItem from "../MoviesItem/MoviesItem";
 
 const Movies = ({ movies, onSelectMovie, search }) => {
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="movies-root">
       {movies.map((movie) => (
         <MoviesItem
           key={movie.imdbID}
