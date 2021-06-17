@@ -5,6 +5,8 @@ import { Provider as ReduxProvider } from "react-redux";
 import AppRoutes from "./AppRoutes";
 import "./app.scss";
 
+// You can pass store to axios incase you need to use it in axios like interceptors
+// setupAxios(store)
 setupAxios();
 
 const App = () => {
