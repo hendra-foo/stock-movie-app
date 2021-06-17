@@ -6,7 +6,7 @@ import useOnScroll from "../../hooks/useOnScroll";
 import { megaSearchActions } from "../../redux/slice/megaSearchSlice";
 import classes from "./megaSearch.module.scss";
 
-const escKeyCode = 27;
+const escKey = "Escape";
 
 const MegaSearch = () => {
   const {
@@ -41,7 +41,7 @@ const MegaSearch = () => {
     inputRef.current?.select(0, inputRef.current?.value?.length);
   }, [inputRef]);
 
-  useOnKeyPress(document, escKeyCode, toggleSearchView);
+  useOnKeyPress(document, escKey, toggleSearchView);
 
   const { handleScroll } = useOnScroll(loadMore);
 
