@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { renderWithRouter } from "../../test-utils/renderWithRouter";
 import Movies from "./Movies";
 

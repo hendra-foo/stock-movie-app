@@ -26,7 +26,7 @@ const MoviePage = () => {
           <div className={classes.movieRoot}>
             <FullscreenPictureModal
               open={open}
-              handleClose={() => setOpen(false)}
+              onClose={() => setOpen(false)}
               src={movie.Poster}
               alt={`${movie?.Title} poster`}
             />

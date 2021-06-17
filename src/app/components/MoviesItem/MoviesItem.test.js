@@ -3,7 +3,7 @@ import MoviesItem from "./MoviesItem";
 import userEvent from "@testing-library/user-event";
 import { renderWithRouter } from "../../test-utils/renderWithRouter";
 
-it("should render movie detail correctly", async () => {
+it("should render movie detail correctly", () => {
   const movie = {
     Title: "Batman: Bad Blood",
     Year: "2016",
@@ -19,7 +19,7 @@ it("should render movie detail correctly", async () => {
   expect(screen.getByTestId("poster")).toHaveAttribute("src", movie.Poster);
 });
 
-it("route to movie detail on click link", async () => {
+it("route to movie detail on click link", () => {
   const movie = {
     Title: "Batman: Bad Blood",
     Year: "2016",

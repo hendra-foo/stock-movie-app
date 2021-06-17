@@ -31,7 +31,7 @@ const MoviesItem = ({ movie, onSelectMovie, search }) => {
     <>
       <FullscreenPictureModal
         open={open}
-        handleClose={() => setOpen(false)}
+        onClose={() => setOpen(false)}
         src={movie.Poster}
         alt={`${movie?.Title} poster`}
       />
