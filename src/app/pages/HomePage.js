@@ -1,7 +1,7 @@
 import { useRequest } from "../hooks/useRequest";
 import { movieService } from "../axios/services/movieServices";
-import Movies from "../components/movies/Movies";
-import classes from "./home.module.scss";
+import Movies from "../components/Movies/Movies";
+import classes from "./homePage.module.scss";
 
 const HomePage = () => {
   const { data: movies = [] } = useRequest(movieService.get, {

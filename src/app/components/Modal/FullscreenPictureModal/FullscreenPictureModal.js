@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import classes from "./gallery.module.scss";
+import classes from "./fullscreenPictureModal.module.scss";
 
 const FullscreenPictureModal = ({ src, alt, open, handleClose }) => {
   const container = document.body;
@@ -7,7 +7,7 @@ const FullscreenPictureModal = ({ src, alt, open, handleClose }) => {
   return (
     open &&
     ReactDOM.createPortal(
-      <div className={classes.fullscreenPictureModal} onClick={handleClose}>
+      <div className={classes.root} onClick={handleClose}>
         <img src={src} alt={alt} />
       </div>,
       container,

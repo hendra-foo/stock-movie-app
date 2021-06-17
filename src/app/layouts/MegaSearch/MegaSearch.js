@@ -1,10 +1,10 @@
 import { useCallback, useLayoutEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Movies from "../components/movies/Movies";
-import useOnKeyPress from "../hooks/useOnKeyPress";
-import useOnScroll from "../hooks/useOnScroll";
-import { megaSearchActions } from "../redux/slice/megaSearchSlice";
-import classes from "./layout.module.scss";
+import Movies from "../../components/Movies/Movies";
+import useOnKeyPress from "../../hooks/useOnKeyPress";
+import useOnScroll from "../../hooks/useOnScroll";
+import { megaSearchActions } from "../../redux/slice/megaSearchSlice";
+import classes from "./megaSearch.module.scss";
 
 const escKeyCode = 27;
 
@@ -46,8 +46,8 @@ const MegaSearch = () => {
   const { handleScroll } = useOnScroll(loadMore);
 
   return (
-    <div className={classes.megaSearchRoot}>
-      <div className={classes.megaSearchContent}>
+    <div className={classes.root}>
+      <div className={classes.content}>
         <input
           ref={inputRef}
           className={classes.input}
@@ -57,10 +57,10 @@ const MegaSearch = () => {
           spellCheck={false}
         />
         {search.length > 0 && errorMessage && (
-          <div className={classes.megaSearchErrorMessage}>{errorMessage}</div>
+          <div className={classes.errorMessage}>{errorMessage}</div>
         )}
         {search.length >= 4 && (
-          <div className={classes.megaSearchList} onScroll={handleScroll}>
+          <div className={classes.list} onScroll={handleScroll}>
             <Movies movies={movies} onSelectMovie={toggleSearchView} search={search} />
           </div>
         )}

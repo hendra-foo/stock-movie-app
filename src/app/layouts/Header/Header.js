@@ -1,12 +1,12 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import CloseIcon from "../components/icons/CloseIcon";
-import SearchIcon from "../components/icons/SearchIcon";
-import { megaSearchActions } from "../redux/slice/megaSearchSlice";
-import MegaSearch from "./MegaSearch";
-import classes from "./layout.module.scss";
-import LoadingIcon from "../components/icons/LoadingIcon";
+import CloseIcon from "../../components/icons/CloseIcon";
+import SearchIcon from "../../components/icons/SearchIcon";
+import { megaSearchActions } from "../../redux/slice/megaSearchSlice";
+import MegaSearch from "../MegaSearch/MegaSearch";
+import classes from "./header.module.scss";
+import LoadingIcon from "../../components/icons/LoadingIcon";
 
 const Header = () => {
   const { open, isSearching, isLoadMore } = useSelector((state) => state.megaSearch);

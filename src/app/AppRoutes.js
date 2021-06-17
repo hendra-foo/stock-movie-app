@@ -1,12 +1,12 @@
 import { Switch, Route } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout";
-import HomePage from "./pages/Home";
-import MoviePage from "./pages/Movie";
+import Layout from "./layouts/Layout";
+import HomePage from "./pages/HomePage";
+import MoviePage from "./pages/Movie/MoviePage";
 
 const AppRoutes = () => {
   return (
     // Extends Main Layout UI
-    <MainLayout>
+    <Layout>
       <Switch>
         <Route path="/movie/:imdbID">
           <MoviePage />
@@ -15,7 +15,7 @@ const AppRoutes = () => {
           <HomePage />
         </Route>
       </Switch>
-    </MainLayout>
+    </Layout>
   );
 };
 

@@ -1,0 +1,60 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.root {
+  border: 1px solid $gray-300;
+  border-radius: 25px;
+  display: flex;
+  overflow: hidden;
+  text-decoration: unset;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .poster img {
+    min-width: 130px;
+    max-width: 130px;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+
+    @include media-breakpoint-up(sm) {
+      min-width: 200px;
+      max-width: 200px;
+    }
+  }
+
+  .detail {
+    padding: 0.75rem;
+
+    @include media-breakpoint-up(sm) {
+      padding: 1.5rem;
+    }
+
+    .title {
+      color: var(--body-color);
+    }
+
+    .info {
+      color: $gray-600;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+
+      @include media-breakpoint-up(sm) {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .plot {
+      color: $gray-600;
+      font-size: 0.875rem;
+      margin-bottom: 0;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 7;
+      overflow: hidden;
+    }
+  }
+}

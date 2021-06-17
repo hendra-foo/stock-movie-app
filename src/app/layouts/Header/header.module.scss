@@ -1,0 +1,21 @@
+.header {
+  position: relative;
+
+  nav {
+    position: relative;
+    z-index: 10000;
+
+    .btnSearchToggler {
+      display: flex;
+      align-items: center;
+      background-color: unset;
+      border: unset;
+      padding: 0.5rem;
+      line-height: 1.2;
+
+      svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import { movieService } from "../../axios/services/movieServices";
-import FullscreenPictureModal from "../../components/gallery/FullscreenPictureModal";
+import FullscreenPictureModal from "../../components/Modal/FullscreenPictureModal/FullscreenPictureModal";
 import { useRequest } from "../../hooks/useRequest";
-import classes from "./movie.module.scss";
+import classes from "./moviePage.module.scss";
 
 const MoviePage = () => {
   const { imdbID } = useParams();
