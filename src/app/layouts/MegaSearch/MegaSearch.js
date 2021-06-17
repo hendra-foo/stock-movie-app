@@ -41,7 +41,7 @@ const MegaSearch = () => {
     inputRef.current?.select(0, inputRef.current?.value?.length);
   }, [inputRef]);
 
-  useOnKeyPress(escKeyCode, toggleSearchView);
+  useOnKeyPress(document, escKeyCode, toggleSearchView);
 
   const { handleScroll } = useOnScroll(loadMore);
 

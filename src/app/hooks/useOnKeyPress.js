@@ -1,18 +1,19 @@
 import { useCallback, useEffect } from "react";
 
-const useOnKeyPress = (keyCode, onMatch) => {
+const useOnKeyPress = (element, keyCode, onMatch) => {
   const handleKeyPress = useCallback(
     (e) => (e.keyCode === keyCode ? onMatch?.() : null),
     [keyCode, onMatch],
   );
 
   useEffect(() => {
-    if (!document) return;
-    document.addEventListener("keydown", handleKeyPress, false);
+    if (!element) return;
+    console.log("relisten");
+    element.addEventListener("keydown", handleKeyPress, false);
     return () => {
-      document.removeEventListener("keydown", handleKeyPress, false);
+      element.removeEventListener("keydown", handleKeyPress, false);
     };
-  }, [handleKeyPress]);
+  }, [element, handleKeyPress]);
 };
 
 export default useOnKeyPress;
