@@ -1,6 +1,6 @@
 # StockMovie App
 
-a movie listing app connected to IMDb API.
+a movie finder app connected to IMDb API.
 
 ### Built With
 
@@ -26,15 +26,19 @@ Make sure you have installed all of the following prerequisites on your local ma
    ```sh
    git clone https://github.com/hendra-foo/stock-movie-app.git
    ```
-2. Install NPM packages, this command is similar to `npm install` [read more here](https://docs.npmjs.com/cli/v7/commands/npm-ci)
+2. Move to repo root directory
+   ```sh
+   cd stock-movie-app
+   ```
+3. Install NPM packages, this command is similar to `npm install` [read more here](https://docs.npmjs.com/cli/v7/commands/npm-ci)
    ```sh
    npm ci
    ```
-3. Run in Development mode
+4. Run in Development mode
    ```sh
    npm start
    ```
-4. You can now view **stock-movie-app** in the browser by going to [http://localhost:3000](http://localhost:3000)
+5. You can now view **stock-movie-app** in the browser by going to [http://localhost:3000](http://localhost:3000)
 
 ### Testing Your Application
 
@@ -55,6 +59,10 @@ For better UX Experience, we don't clear your last search after you close the Me
 #### Big Poster
 
 Click on the poster will show a Full Big Poster to your Screen
+
+#### Fully Responsive
+
+Our app also work on all screensize
 
 ## Contact
 
