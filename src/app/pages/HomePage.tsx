@@ -3,7 +3,7 @@ import { movieService } from "../axios/services/movieServices";
 import Movies from "../components/Movies/Movies";
 import classes from "./homePage.module.scss";
 
-const HomePage = () => {
+const HomePage = (): JSX.Element => {
   const { data: movies = [] } = useRequest(movieService.get, {
     formatResult: (res) => res?.Search ?? [],
     params: [

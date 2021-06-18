@@ -5,8 +5,8 @@ import FullscreenPictureModal from "../../components/modals/FullscreenPictureMod
 import { useRequest } from "../../hooks/useRequest";
 import classes from "./moviePage.module.scss";
 
-const MoviePage = () => {
-  const { imdbID } = useParams();
+const MoviePage = (): JSX.Element => {
+  const { imdbID } = useParams<{ imdbID?: string }>();
   const [open, setOpen] = useState(false);
 
   const { data: movie } = useRequest(movieService.get, {

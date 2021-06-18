@@ -1,5 +1,4 @@
 import { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CloseIcon from "../../components/icons/CloseIcon";
 import SearchIcon from "../../components/icons/SearchIcon";
@@ -7,10 +6,11 @@ import { megaSearchActions } from "../../redux/slice/megaSearchSlice";
 import MegaSearch from "../MegaSearch/MegaSearch";
 import classes from "./header.module.scss";
 import LoadingIcon from "../../components/icons/LoadingIcon";
+import { useAppDispatch, useAppSelector } from "../../hooks/useRedux";
 
-const Header = () => {
-  const { open, isSearching, isLoadMore } = useSelector((state) => state.megaSearch);
-  const dispatch = useDispatch();
+const Header = (): JSX.Element => {
+  const { open, isSearching, isLoadmore } = useAppSelector((state) => state.megaSearch);
+  const dispatch = useAppDispatch();
 
   const toggleSearchView = useCallback(() => {
     dispatch(megaSearchActions.toggle());
@@ -34,7 +34,7 @@ const Header = () => {
           <div className="d-flex">
             <button className={classes.btnSearchToggler} onClick={toggleSearchView}>
               <span className="me-2">SEARCH</span>
-              {isSearching || isLoadMore ? <LoadingIcon /> : open ? <CloseIcon /> : <SearchIcon />}
+              {isSearching || isLoadmore ? <LoadingIcon /> : open ? <CloseIcon /> : <SearchIcon />}
             </button>
           </div>
         </div>

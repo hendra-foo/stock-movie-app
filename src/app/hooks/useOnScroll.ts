@@ -1,6 +1,17 @@
-import { useCallback } from "react";
+import { UIEventHandler, useCallback } from "react";
 
-const useOnScroll = (onMatch, { match = "bottom" } = {}) => {
+type Options = {
+  match?: "bottom" | "up";
+};
+
+type useOnScrollFn = (
+  onMatch: () => void,
+  options?: Options | undefined,
+) => {
+  handleScroll: UIEventHandler<HTMLElement>;
+};
+
+const useOnScroll: useOnScrollFn = (onMatch, { match = "bottom" } = {}) => {
   const handleScroll = useCallback(
     (e) => {
       const container = e.target;

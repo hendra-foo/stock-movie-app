@@ -1,14 +1,14 @@
 import { useCallback, useLayoutEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Movies from "../../components/Movies/Movies";
 import useOnKeyPress from "../../hooks/useOnKeyPress";
 import useOnScroll from "../../hooks/useOnScroll";
+import { useAppDispatch, useAppSelector } from "../../hooks/useRedux";
 import { megaSearchActions } from "../../redux/slice/megaSearchSlice";
 import classes from "./megaSearch.module.scss";
 
 const escKey = "Escape";
 
-const MegaSearch = () => {
+const MegaSearch = (): JSX.Element => {
   const {
     search,
     errorMessage,
@@ -17,9 +17,9 @@ const MegaSearch = () => {
     size,
     isLoadmore,
     movies = [],
-  } = useSelector((state) => state.megaSearch);
-  const dispatch = useDispatch();
-  const inputRef = useRef();
+  } = useAppSelector((state) => state.megaSearch);
+  const dispatch = useAppDispatch();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = useCallback(
     ({ target: { value } }) => {
@@ -38,7 +38,7 @@ const MegaSearch = () => {
 
   useLayoutEffect(() => {
     inputRef.current?.focus();
-    inputRef.current?.select(0, inputRef.current?.value?.length);
+    inputRef.current?.select();
   }, [inputRef]);
 
   useOnKeyPress(document, escKey, toggleSearchView);

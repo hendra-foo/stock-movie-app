@@ -67,7 +67,7 @@ const megaSearchSlice = createSlice({
 export const megaSearchActions = megaSearchSlice.actions;
 export const megaSearchReducer = megaSearchSlice.reducer;
 
-export function* megaSearchSaga() {
+export function* megaSearchSaga(): Generator {
   // on input change, validate and request movie
   yield takeLatest(megaSearchActions.onSearch, function* searchMovie({ payload: search }) {
     try {

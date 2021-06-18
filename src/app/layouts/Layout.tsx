@@ -1,7 +1,11 @@
 import Header from "./Header/Header";
 import classes from "./layout.module.scss";
 
-const Layout = ({ children }) => {
+type LayoutProps = {
+  children: React.ReactElement;
+};
+
+const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <div className={classes.root}>
       <Header />

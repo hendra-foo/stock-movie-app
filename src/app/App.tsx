@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { setupAxios } from "./axios/setupAxios";
-import store from "./redux/store";
+import { store } from "./redux/store";
 import { Provider as ReduxProvider } from "react-redux";
 import AppRoutes from "./AppRoutes";
 import "./app.scss";
@@ -9,7 +9,7 @@ import "./app.scss";
 // setupAxios(store)
 setupAxios();
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
     // Redux store Provider
     <ReduxProvider store={store}>

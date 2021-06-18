@@ -1,7 +1,21 @@
 import classes from "./movies.module.scss";
 import MoviesItem from "../MoviesItem/MoviesItem";
 
-const Movies = ({ movies, onSelectMovie, search }) => {
+export type Movie = {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: string;
+  Poster: string;
+};
+
+type MoviesProps = {
+  movies: Movie[];
+  onSelectMovie: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  search: string;
+};
+
+const Movies = ({ movies, onSelectMovie, search }: MoviesProps): JSX.Element => {
   return (
     <div className={classes.root} data-testid="movies-root">
       {movies.map((movie) => (

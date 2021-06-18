@@ -3,7 +3,7 @@ import Layout from "./layouts/Layout";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/Movie/MoviePage";
 
-const AppRoutes = () => {
+const AppRoutes = (): JSX.Element => {
   return (
     // Extends Main Layout UI
     <Layout>

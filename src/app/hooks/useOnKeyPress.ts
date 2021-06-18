@@ -1,6 +1,8 @@
 import { useCallback, useEffect } from "react";
 
-const useOnKeyPress = (element, key, onMatch) => {
+type useOnKeyPressFn = (element: HTMLElement | Document, key: string, onMatch: () => void) => void;
+
+const useOnKeyPress: useOnKeyPressFn = (element, key, onMatch) => {
   const handleKeyPress = useCallback((e) => (e.key === key ? onMatch?.() : null), [key, onMatch]);
 
   useEffect(() => {

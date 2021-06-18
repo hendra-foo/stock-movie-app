@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, RenderResult } from "@testing-library/react";
 import { MemoryRouter, useLocation } from "react-router-dom";
 
 const LocationDisplay = () => {
@@ -6,7 +6,11 @@ const LocationDisplay = () => {
   return <div data-testid="location-display">{pathname}</div>;
 };
 
-const Router = ({ children }) => {
+type RouterProps = {
+  children: React.ReactElement;
+};
+
+const Router = ({ children }: RouterProps): JSX.Element => {
   return (
     <MemoryRouter>
       <LocationDisplay />
@@ -15,6 +19,6 @@ const Router = ({ children }) => {
   );
 };
 
-export const renderWithRouter = (ui) => {
-  return render(ui, { wrapper: Router });
+export const renderWithRouter = (ui: JSX.Element): RenderResult => {
+  return render(<Router>{ui}</Router>);
 };
