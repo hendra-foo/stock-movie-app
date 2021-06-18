@@ -1,6 +1,6 @@
 # StockMovie App
 
-a movie finder app connected to IMDb API.
+a movie finder app connected to OMDb API.
 
 For Bibit / Stockbit Lead React Developer Test - Test 2: Simple Movie Finder App
 
