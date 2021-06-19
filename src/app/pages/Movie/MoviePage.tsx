@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router";
-import { movieService } from "../../axios/services/movieServices";
+import { movieService, movieServiceType, omdbAPIRes } from "../../axios/services/movieServices";
 import FullscreenPictureModal from "../../components/modals/FullscreenPictureModal/FullscreenPictureModal";
 import { useRequest } from "../../hooks/useRequest";
 import classes from "./moviePage.module.scss";
@@ -9,7 +9,7 @@ const MoviePage = (): JSX.Element => {
   const { imdbID } = useParams<{ imdbID?: string }>();
   const [open, setOpen] = useState(false);
 
-  const { data: movie } = useRequest(movieService.get, {
+  const { data } = useRequest<Parameters<movieServiceType["get"]>, omdbAPIRes>(movieService.get, {
     params: [
       {
         i: imdbID,
@@ -18,6 +18,7 @@ const MoviePage = (): JSX.Element => {
     ],
     refreshDeps: [imdbID],
   });
+  const movie = data?.data ?? {};
 
   return (
     <section>

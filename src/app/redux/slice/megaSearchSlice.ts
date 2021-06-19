@@ -98,10 +98,7 @@ export function* megaSearchSaga(): Generator {
       const { search, page } = yield select((state) => state.megaSearch);
 
       const {
-        Error: errorMessage,
-        Response,
-        Search,
-        totalResults,
+        data: { Error: errorMessage, Response, Search, totalResults },
       } = yield call(movieService.get, {
         s: search,
         page,

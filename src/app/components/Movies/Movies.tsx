@@ -7,12 +7,13 @@ export type Movie = {
   imdbID: string;
   Type: string;
   Poster: string;
+  Plot: string;
 };
 
 type MoviesProps = {
   movies: Movie[];
-  onSelectMovie: (event: React.MouseEvent<HTMLAnchorElement>) => void;
-  search: string;
+  onSelectMovie?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  search?: string;
 };
 
 const Movies = ({ movies, onSelectMovie, search }: MoviesProps): JSX.Element => {

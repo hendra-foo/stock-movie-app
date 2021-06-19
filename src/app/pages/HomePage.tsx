@@ -1,11 +1,10 @@
 import { useRequest } from "../hooks/useRequest";
-import { movieService } from "../axios/services/movieServices";
+import { movieService, movieServiceType, omdbAPIRes } from "../axios/services/movieServices";
 import Movies from "../components/Movies/Movies";
 import classes from "./homePage.module.scss";
 
 const HomePage = (): JSX.Element => {
-  const { data: movies = [] } = useRequest(movieService.get, {
-    formatResult: (res) => res?.Search ?? [],
+  const { data } = useRequest<Parameters<movieServiceType["get"]>, omdbAPIRes>(movieService.get, {
     params: [
       {
         s: "Batman",
@@ -15,6 +14,7 @@ const HomePage = (): JSX.Element => {
       },
     ],
   });
+  const movies = data?.data?.Search ?? [];
 
   return (
     <section className={classes.sectionHero}>

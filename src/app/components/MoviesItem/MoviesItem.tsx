@@ -6,8 +6,8 @@ import classes from "./moviesItem.module.scss";
 
 type MovieProps = {
   movie: Movie;
-  onSelectMovie: (event: React.MouseEvent<HTMLAnchorElement>) => void;
-  search: string;
+  onSelectMovie?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  search?: string;
 };
 
 const MoviesItem = ({ movie, onSelectMovie, search }: MovieProps): JSX.Element => {
